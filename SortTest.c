@@ -36,7 +36,7 @@ int main() {
 								"vetor_aleatorio_200000", 
 								"vetor_aleatorio_400000", 
 								"vetor_aleatorio_800000",
-								"vet_in_100000",
+								"vetor_inverso_100000",
 								"vetor_inverso_200000", 
 								"vetor_inverso_400000", 
 								"vetor_inverso_800000"
@@ -49,7 +49,7 @@ int main() {
 	//tempoRadixSort(tam, vetorArquivo);
     //tempoHeapSort(tam, vetorArquivo);
     //tempoMerge(tam, vetorArquivo, 8);
-    tempoQuickSort(tam, vetorArquivo, 1);
+    tempoQuickSort(tam, vetorArquivo, 8);
     //tempoSelection(tam, vetorArquivo);gcc
     //tempoInsertion(tam, vetorArquivo);
 	//tempoBubble(tam, vetorArquivo);
@@ -149,7 +149,7 @@ void tempoMerge(int tam[], char vetorArquivo[8][30], int qtd){
  	gravarArquivoTexto("saida.csv", "\n\n");
 }
 
-void tempoQuickSort(int tam[], char vetorArquivo[1][30], int qtd){
+void tempoQuickSort(int tam[], char vetorArquivo[8][30], int qtd){
     int i;
     for(i = 0; i < qtd; i++){
         clock_t start, end;
@@ -157,19 +157,19 @@ void tempoQuickSort(int tam[], char vetorArquivo[1][30], int qtd){
         SIZE = tam[i];
         int *vet = (int*)malloc(sizeof(int)* SIZE);
         carregarVetor(vet, vetorArquivo[i], tam[i]);
-        printVetor(vet);
-        printf("\n\nExecutando a ordenacao...\n");
+        //printVetor(vet);
+        printf("\n\nExecutando a ordenacao Quicksort %s...\n", vetorArquivo[i]);
         start = clock();  
-        quicksort(vet, 0, tam[i] - 1);
+		quick(vet, 0, tam[i] - 1);
         end = clock();
         cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-        printVetor(vet);
+        //printVetor(vet);
         printf("\n\nO tempo gasto foi %.6f segundos\n\n", cpu_time_used);
         char saida[50];
         sprintf(saida, "QuickSort;%s;%.6f S.", vetorArquivo[i], cpu_time_used);       
         gravarArquivoTexto("saida.csv", saida);
         char tex[40];
-        sprintf(tex, "saidas/QuickSort%s", vetorArquivo[i]);
+        sprintf(tex, "saidas\\QuickSort%s", vetorArquivo[i]);
         gravarArquivoInt(tex, vet, SIZE);
         free(vet);
     }
@@ -186,7 +186,7 @@ void tempoSelection(int tam[], char vetorArquivo[8][30], int qtd){
         int *vet = (int*)malloc(sizeof(int) * SIZE);
         carregarVetor(vet, vetorArquivo[i], tam[i]);
         printVetor(vet);
-        printf("\n\nExecutando a ordenacao...\n");
+        printf("\n\nExecutando a ordenacao ...\n");
         start = clock();
 		ordenarSelection(vet, SIZE);
         end = clock();

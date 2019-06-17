@@ -1,0 +1,13 @@
+Algoritimo;Lista;Tempo
+;;
+QuickSort;vetor_aleatorio_100000;0.014000 S.
+QuickSort;vetor_aleatorio_200000;0.026000 S.
+QuickSort;vetor_aleatorio_400000;0.058000 S.
+QuickSort;vetor_aleatorio_800000;0.108000 S.
+QuickSort;vetor_inverso_100000;0.006000 S.
+QuickSort;vetor_inverso_200000;0.012000 S.
+QuickSort;vetor_inverso_400000;0.019000 S.
+QuickSort;vetor_inverso_800000;0.039000 S.
+
+
+
